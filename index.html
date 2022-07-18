@@ -4,17 +4,42 @@
         <title> my firs javascript page </title> <!--- titulo de la pagina-->   
     </head>
     <body> <!-- lo que se mostrara en la pagina-->
-        <h1 id="mititulo"></h1>
+        <h1 id="mititulo" onmousemove="cambiaColor()" ></h1>
+        <button onclick="cambiaColor()"> cambia el color</button>
 
     </body>
 </html>
 
 <script type="text/javascript">
-    var saludo = "hola mundito"
+    var saludo = "hola Mamasita!!"
     const titulo = document.getElementById("mititulo")
     titulo.innerHTML = saludo
     titulo.style.fontSize = "50px"
     titulo.style.color = "purple"
     titulo.style.backgroundColor = "yellow"
-    titulo.style.textAling = "center"
+    titulo.style.fontStyle = "bold"
+    titulo.style.textDecoration = "underline"
+
+    function cambiaColor(){
+
+        var color = "#"
+
+        for (var i = 0; i < 6; i++) {
+            color += colorAleatorio() 
+        }
+        titulo.style.color = color
+        
+        var color2 = "#"
+
+        for (var i = 0; i < 6; i++) {
+            color2 += colorAleatorio() 
+        }
+        titulo.style.backgroundColor = color2
+        console.info(color)
+    }
+    function colorAleatorio(){
+        const hexa = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+        var numero = (Math.random()*15).toFixed(0)
+        return hexa[numero] 
+    }
 </script>
